@@ -1,5 +1,14 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-\margl1440\margr1440\vieww10800\viewh8400\viewkind0
-}
+Will become a heading
+==============
+
+Will become a sub heading
+--------------
+
+*This will be Italic*
+
+**This will be Bold**
+
+- This will be a list item
+- This will be a list item
+
+    Add a indent and this will end up as code
