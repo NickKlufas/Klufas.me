@@ -9,7 +9,7 @@
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//platform.twitter.com">
 
-	<title>Nicolas Klufas.</title>
+	<title>Random Color</title>
 
 	<link rel="stylesheet" href="/ui/style.css">
 
@@ -27,13 +27,13 @@
 	<meta property="og:title" content="Nicolas Klufas.">
 	<meta property="og:type" content="website">
 	<meta property="og:description" content="">
-	<meta property="og:url" content="/index.html">
+	<meta property="og:url" content="/posts/random_color.html">
 	<!-- @see dev.twitter.com/docs/cards -->
 	<meta property="twitter:title" content="Nicholas Klufas - Full Stack developer">
 	<meta property="twitter:creator" content="@NicholasKlufas">
 	<meta property="twitter:card" content="summary">
 	<meta property="twitter:description" content="">
-	<meta property="twitter:url" content="/index.html">
+	<meta property="twitter:url" content="/posts/random_color.html">
 <script src="//platform.twitter.com/widgets.js" id="twitter-wjs" type="text/javascript" async=""></script><script src="//www.google-analytics.com/ga.js" id="analytics" type="text/javascript" async=""></script></head>
 <body class="page--post" data-twttr-rendered="true">
 
@@ -79,26 +79,66 @@
 	<!-- /.sidebar -->
 
 	<div class="content">
-		<h1 class="accessibility">Nicholas Klufas Blog Archive</h1>
+		<article class="post">
 
-<ul class="posts">
-	
-	<li>
-		<h2 class="post__title"><a href="/posts/random_color">Ξ Color!</a></h2>
-		<div class="post__date">10 September, 2013</div>
-	</li>
+	<h1 class="post__title">Random Color Generator</h1>
 
-	<li>
-		<h2 class="post__title"><a href="/posts/converting_coordinates">Converting coordinates made easy!</a></h2>
-		<div class="post__date">6 September, 2013</div>
-	</li>
+	<p>In the spirit of consistantly improving my craft I've decided to dedicate a portion of time each week making simple projects that can be completed in less than an hour. My theory behind these projects is that continuous code production keeps the mind sharp and able to rapidly recall syntax from memory; if you don't use it you lose it. </p>
 	
-	<li>
-		<h2 class="post__title"><a href="/posts/woocommercehooks">Woocommerce post order hook</a></h2>
-		<div class="post__date">25 August, 2013</div>
-	</li>
+	<a href="http://klufas.me/public_projects/Random_Color"><p>Check it out here</p></a>
+
+<pre class="prettyprint"><code>
+$(document).ready(
+	function () {
+	    $(document).bind('keydown', 'space', function () {
+	        $('body').css( "background", get_random_color() );
+	    });
+	});
 	
-</ul>
+	function get_random_color() {
+	    var letters = '0123456789ABCDEF'.split('');
+	    var color = '#';
+	    for (var i = 0; i < 6; i++ ) {
+	        color += letters[Math.round(Math.random() * 15)];
+	    }
+	    $("#text").text(color);
+	    return color;
+	}
+</code></pre>
+
+
+	<hr>
+
+	<ul class="post__tags">
+		<li>Tags:</li>
+		
+		<li><a href="/tag/javascript">#javascript</a></li>
+		
+		<li><a href="/tag/snippet">#snippet</a></li>
+		
+		<li><a href="/tag/ux">#color</a></li>
+		
+		<li><a href="/tag/ux">#projects</a></li>
+		
+	</ul>
+
+	<hr>
+
+	<p class="post__nav">
+
+		
+		<a href="#" class="post__prev hint--right hint--rounded" data-hint="Add anchors to your section titles">Previous post</a>
+		
+
+		<a href="https://twitter.com/share" class="twitter-share-button" data-text="Send forms using Ctrl + Enter">Tweet</a>
+
+		
+		<a href="#" class="post__next hint--left hint--rounded" data-hint="Grouped logging">Next post</a>
+		
+
+	</p>
+
+</article>
 	</div>
 	<!-- /.content -->
 

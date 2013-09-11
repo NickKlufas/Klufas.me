@@ -9,7 +9,7 @@
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//platform.twitter.com">
 
-	<title>Nicolas Klufas.</title>
+	<title>Random Color</title>
 
 	<link rel="stylesheet" href="/ui/style.css">
 
@@ -27,13 +27,13 @@
 	<meta property="og:title" content="Nicolas Klufas.">
 	<meta property="og:type" content="website">
 	<meta property="og:description" content="">
-	<meta property="og:url" content="/index.html">
+	<meta property="og:url" content="/posts/converting_coordinates.html">
 	<!-- @see dev.twitter.com/docs/cards -->
 	<meta property="twitter:title" content="Nicholas Klufas - Full Stack developer">
 	<meta property="twitter:creator" content="@NicholasKlufas">
 	<meta property="twitter:card" content="summary">
 	<meta property="twitter:description" content="">
-	<meta property="twitter:url" content="/index.html">
+	<meta property="twitter:url" content="/posts/converting_coordinates.html">
 <script src="//platform.twitter.com/widgets.js" id="twitter-wjs" type="text/javascript" async=""></script><script src="//www.google-analytics.com/ga.js" id="analytics" type="text/javascript" async=""></script></head>
 <body class="page--post" data-twttr-rendered="true">
 
@@ -79,26 +79,75 @@
 	<!-- /.sidebar -->
 
 	<div class="content">
-		<h1 class="accessibility">Nicholas Klufas Blog Archive</h1>
+		<article class="post">
 
-<ul class="posts">
-	
-	<li>
-		<h2 class="post__title"><a href="/posts/random_color">Ξ Color!</a></h2>
-		<div class="post__date">10 September, 2013</div>
-	</li>
+	<h1 class="post__title">Projecting coordinates across spatial reference systems made easy.</h1>
 
-	<li>
-		<h2 class="post__title"><a href="/posts/converting_coordinates">Converting coordinates made easy!</a></h2>
-		<div class="post__date">6 September, 2013</div>
-	</li>
+	<p>I've been immersed in GIS applications over the past few months, one thing I found interesting were how so few free, easy to use coordinate conversion tools existed. If you buy an expensive GIS server you usually get the bells and whistles of a geometric service that includes projection functionality, but I've whipped together a quick converter that is free to use.</p>
 	
-	<li>
-		<h2 class="post__title"><a href="/posts/woocommercehooks">Woocommerce post order hook</a></h2>
-		<div class="post__date">25 August, 2013</div>
-	</li>
+	<a href="http://klufas.me/public_projects/Web_Mercator_Converter"><p>Check it out here</p></a>
+
+	<p>Here's a snippit of the javascript code I used to rip values from the page and POST to a php file</p>
 	
-</ul>
+<pre class="prettyprint"><code>
+$(document).ready(function() {
+  // When id with Action is clicked
+  $('#PostJSON').click(function() {
+  
+  	var data = "mercatorX_lon=" + $('#mercator_x').val() + "&mercatorY_lat=" + $('#mercator_y').val()
+  			 + "&inputsr=" + $('#inputsr').val() + "&outputsr=" + $('#outputsr').val();           
+
+             $.ajax({
+		  url: "/yourphpfilenamehere.php",
+		  data: data,
+		  type: "POST",
+		  success: function(data, textStatus, jqXHR){
+		  var data = JSON.parse(data);
+		  console.log();
+			$("#converted_to_geo").text("X: " + data.geometries[0].x + ", Y: " + data.geometries[0].y);
+		  },
+		  error: function (jqXHR, textStatus, errorThrown){
+			console.log('Error ' + jqXHR);
+		  }
+		});
+
+  });
+});
+</code></pre>
+
+
+	<hr>
+
+	<ul class="post__tags">
+		<li>Tags:</li>
+		
+		<li><a href="/tag/javascript">#javascript</a></li>
+		
+		<li><a href="/tag/snippet">#snippet</a></li>
+		
+		<li><a href="/tag/ux">#GIS</a></li>
+		
+		<li><a href="/tag/ux">#projects</a></li>
+		
+	</ul>
+
+	<hr>
+
+	<p class="post__nav">
+
+		
+		<a href="#" class="post__prev hint--right hint--rounded" data-hint="Add anchors to your section titles">Previous post</a>
+		
+
+		<a href="https://twitter.com/share" class="twitter-share-button" data-text="Send forms using Ctrl + Enter">Tweet</a>
+
+		
+		<a href="#" class="post__next hint--left hint--rounded" data-hint="Grouped logging">Next post</a>
+		
+
+	</p>
+
+</article>
 	</div>
 	<!-- /.content -->
 
