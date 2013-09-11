@@ -1,5 +1,3 @@
-/* by @Idered */
-
 var App = App || (function($) {
 
 	var Utils   = {},
