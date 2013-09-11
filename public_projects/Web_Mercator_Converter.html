@@ -79,55 +79,50 @@
 	<!-- /.sidebar -->
 
 	<div class="content">
-		<article class="post">
+		<h1 class="accessibility">Nicholas Klufas Blog Archive</h1>
 
-	<h1 class="post__title">Post order hook for WooCommerce</h1>
+<ul class="posts">
 
-	<p>Often when I'm configuring a WooCommerce powered site, the necessity to execute code after an order has completed arises. Initially it took me a bit of time to find out how to achieve this. The below code adds a hook that is triggered by the 'woocommerce_order_status_completed' filter to achieve what this:</p>
-
-<pre class="prettyprint"><code>add_action( 'woocommerce_order_status_completed', 'check_quantity' );
-
-function check_quantity($order_id) {
-	// order object (optional but handy)
-	$order = new WC_Order( $order_id );
+	<h1 class="post__title">Geocoordinate Conversion Tool</h1>
 	
-	// your custom code here
-  }
-</code></pre>
-
-
-	<hr>
-
-	<ul class="post__tags">
-		<li>Tags:</li>
-		
-		<li><a href="/tag/javascript">#php</a></li>
-		
-		<li><a href="/tag/snippet">#snippet</a></li>
-		
-		<li><a href="/tag/ux">#wordpress</a></li>
-		
-		<li><a href="/tag/ux">#woocommerce</a></li>
-		
-	</ul>
-
-	<hr>
-
-	<p class="post__nav">
-
-		
-		<a href="#" class="post__prev hint--right hint--rounded" data-hint="Add anchors to your section titles">Previous post</a>
-		
-
-		<a href="https://twitter.com/share" class="twitter-share-button" data-text="Send forms using Ctrl + Enter">Tweet</a>
-
-		
-		<a href="#" class="post__next hint--left hint--rounded" data-hint="Grouped logging">Next post</a>
-		
-
-	</p>
-
-</article>
+	<p> This tool projects coordinates across unique coordinate systems.   </p>
+	<li>
+	Input spatial coordinate reference number
+	<input id="inputsr" list="browsers" name="browser" value="4326">
+		<datalist id="browsers">
+		  <option value="Internet Explorer">
+		  <option value="Firefox">
+		  <option value="Chrome">
+		  <option value="Opera">
+		  <option value="Safari">
+		</datalist>
+	<input type="submit" style="display: none;">
+	</li>
+	<li>
+	Output spatial coordinate reference number
+	<input id="outputsr" list="browsers" name="browser" value="102113">
+		<datalist id="browsers">
+		  <option value="Internet Explorer">
+		  <option value="Firefox">
+		  <option value="Chrome">
+		  <option value="Opera">
+		  <option value="Safari">
+		</datalist>
+	<input type="submit" style="display: none;">
+	</li>
+	<li>
+	<input type="number" id="mercator_x" value="-117">
+	<input type="number" id="mercator_y" value="34">
+	</li>
+	<li>
+		<a id="PostJSON" href="#">Convert to Geographic</a>
+	</li>
+	</li>
+	<li>
+		<span id="converted_to_geo"></span>
+	</li>
+	
+</ul>
 	</div>
 	<!-- /.content -->
 
@@ -149,5 +144,31 @@ function check_quantity($order_id) {
 <script src="/ui/js/jquery.js"></script>
 <script src="/ui/js/plugins.js"></script>
 <script src="/ui/js/script.js"></script>
+<script>
+	// Wait till dom is loaded
+$(document).ready(function() {
+  // When id with Action is clicked
+  $('#PostJSON').click(function() {
+  
+  	var data = "mercatorX_lon=" + $('#mercator_x').val() + "&mercatorY_lat=" + $('#mercator_y').val()
+  			 + "&inputsr=" + $('#inputsr').val() + "&outputsr=" + $('#outputsr').val();           
+
+             $.ajax({
+		  url: "/crossdomain.php",
+		  data: data,
+		  type: "POST",
+		  success: function(data, textStatus, jqXHR){
+		  var data = JSON.parse(data);
+		  console.log();
+			$("#converted_to_geo").text("X: " + data.geometries[0].x + ", Y: " + data.geometries[0].y);
+		  },
+		  error: function (jqXHR, textStatus, errorThrown){
+			console.log('Error ' + jqXHR);
+		  }
+		});
+
+  });
+});
+</script>
 
 </body></html>
