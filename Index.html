@@ -1,125 +1,544 @@
-<html lang="en"><head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+<!doctype html>
+<html lang="en">
 
-	<!-- @see developer.mozilla.org/en-US/docs/Controlling_DNS_prefetching -->
-	<link rel="dns-prefetch" href="//r.twimg.com">
-	<link rel="dns-prefetch" href="//p.twitter.com">
-	<link rel="dns-prefetch" href="//cdn.api.twitter.com">
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//platform.twitter.com">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <title>Hire me!</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
+    <link href="css/timeline.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <style>
+    .content-column .card:not(:last-child) {
+        margin-bottom: 10px;
+    }
 
-	<title>Nicolas Klufas.</title>
+    .content-column .card-header,
+    .skills-header {
+        display: flex;
+    }
 
-	<link rel="stylesheet" href="/ui/style.css">
+    .content-column .card-header span:nth-child(1),
+    .skills-header span:nth-child(1) {
+        flex-grow: 0;
+    }
 
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet" type="text/css">
+    .content-column .card-header span:nth-child(2),
+    .skills-header span:nth-child(2) {
+        flex-grow: 1;
+        border-bottom: 2px solid #ddd;
+        position: relative;
+        top: -6px;
+        margin-left: 15px;
+    }
 
-	<link rel="shortcut icon" href="/favicon.gif">
-	<link rel="apple-touch-icon-precomposed" href="/favicon.gif">
+    .skills-header {
+        margin-bottom: 25px;
+    }
 
-	<link rel="start" href="http://klufas.me//" title="Nicolas Klufas.">
+    .skill-title {
+        margin-bottom: 5px;
+    }
 
-	<!-- @see developer.mozilla.org/en-US/docs/Link_prefetching_FAQ -->
-	<!-- @see codular.com/google-author-image -->
-	<link rel="author" href="https://plus.google.com/113881658376128746127/posts">
-	<!-- @see ogp.me -->
-	<meta property="og:title" content="Nicolas Klufas.">
-	<meta property="og:type" content="website">
-	<meta property="og:description" content="">
-	<meta property="og:url" content="/index.html">
-	<!-- @see dev.twitter.com/docs/cards -->
-	<meta property="twitter:title" content="Nicholas Klufas - Full Stack developer">
-	<meta property="twitter:creator" content="@NicholasKlufas">
-	<meta property="twitter:card" content="summary">
-	<meta property="twitter:description" content="">
-	<meta property="twitter:url" content="/index.html">
-<script src="//platform.twitter.com/widgets.js" id="twitter-wjs" type="text/javascript" async=""></script><script src="//www.google-analytics.com/ga.js" id="analytics" type="text/javascript" async=""></script></head>
-<body class="page--post" data-twttr-rendered="true">
+    .skill-rating {
+        display: flex;
+        padding-left: 4px;
+        margin-bottom: 4px;
+        font-size: 1.5em;
+        color: #fbd974;
+    }
 
+    #particles-js {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+    }
 
-<div class="main wrapper">
+    .reference-card p {
+        padding: 0;
+        margin-bottom: 0;
+    }
+    /*.particles-js-canvas-el {
+        background-color: black;
+    }*/
+    /*Extra small devices (portrait phones, less than 576px)*/
 
-	<aside class="sidebar">
+    @media (max-width: 575px) {
+        #skills-container-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            justify-content: space-around;
+        }
 
-		<a href="/" rel="index" class="site-name fx--opacity">
-			Nicholas.
-		</a>
-		<!-- /.site-name -->
+        .timeline.timeline-single-column.timeline .timeline-item.timeline-item-right,
+        .timeline.timeline-single-column.timeline .timeline-item:nth-of-type(even):not(.timeline-item-left) {
+            padding-left: 20px;
+            padding-right: 0;
+        }
 
-		<ul class="nav nav--stacked site-nav">
-			<li class="site-nav__archive"><a href="/archive/">Archive</a></li>
-			<li class="site-nav__projects"><a href="/projects/">Projects</a></li>
-			<li class="site-nav__contact"><a href="/contact/">Contact</a></li>
-		</ul>
-		<!-- /.nav.site-nav -->
+        .timeline.timeline-single-column.timeline:before {
+            left: -7px;
+            width: 0;
+            margin-left: -1px;
+        }
 
-		<div class="sidebar__about">
-			<p>
-				Hello, I’m Nicholas. I’m a 25 year old <b>developer</b>, <b>designer</b> and <b>golfer</b> from Florida. I like to
-				<a href="http://twitter.com/NicholasKlufas" class="hint--top hint--rounded" data-hint="Twitter">tweet</a>,
-				<a href="/archive/" class="hint--top hint--rounded" data-hint="Blog archive">write</a>,
-				<a href="http://dribbble.com/Nick.Klufas" class="hint--top hint--rounded" data-hint="Dribbble">design</a>,
-				<a href="http://stackoverflow.com/users/1948968/nick-klufas" class="hint--top hint--rounded" data-hint="Stack Overflow">learn</a>  and
-				<a href="https://github.com/NickKlufas" class="hint--top hint--rounded" data-hint="GitHub">share my code</a>.
-			</p>
+        .timeline.timeline-single-column.timeline .timeline-item>.timeline-point {
+            transform: translateX(-50%);
+            left: -7px !important;
+            margin-left: 0;
+        }
 
-			<p class="twitter-follow">
-				<!-- @see dev.twitter.com/docs/follow-button -->
-				<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.1375828408.html#_=1377220944885&amp;id=twitter-widget-1&amp;lang=en&amp;screen_name=NicholasKlufas&amp;show_count=false&amp;show_screen_name=true&amp;size=l" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 132px; height: 28px;"></iframe>
-				<a href="//twitter.com/NicholasKlufas" class="twitter-follow__button"><i class="s s--twitter"></i>Follow on Twiter</a>
-			</p>
-		</div>
+        .card-education {
+            margin-bottom: 20px;
+        }
+    }
+    /*Small devices (landscape phones, less than 768px)*/
 
-		<p class="footer">
-			2013 © <a href="http://twitter.com/NicholasKlufas">Nicholas Klufas</a>. View <a href="https://github.com/NickKlufas/Klufas.me">source</a>.
-		</p>
+    @media (max-width: 767px) {
+        #skills-container-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
 
-	</aside>
-	<!-- /.sidebar -->
+        .content-column {
+            padding: 0;
+            margin-top: 25px;
+        }
+    }
+    /*// Medium devices (tablets, less than 992px)*/
 
-	<div class="content">
-		<h1 class="accessibility">Nicholas Klufas Blog Archive</h1>
+    @media (max-width: 991px) {
+        .reference-card {
+            margin-bottom: 10px;
+        }
 
-<ul class="posts">
-	<li>
-		<h2 class="post__title"><a href="/posts/random_color">Ξ Color!</a></h2>
-		<div class="post__date">10 September, 2013</div>
-	</li>
+        .reference-card-container {
+            padding-bottom: 5px;
+        }
+    }
+    </style>
+</head>
 
-	<li>
-		<h2 class="post__title"><a href="/posts/converting_coordinates">Converting coordinates made easy!</a></h2>
-		<div class="post__date">6 September, 2013</div>
-	</li>
-	
-	<li>
-		<h2 class="post__title"><a href="/posts/woocommercehooks">Woocommerce post order hook</a></h2>
-		<div class="post__date">25 August, 2013</div>
-	</li>
-	
-	
-	
-</ul>
-	</div>
-	<!-- /.content -->
+<body>
+    <div id="main-container" class="container-fluid" style="margin-top: 25px; max-width: 1140px;">
+        <div class="container-fluid" style="z-index: 1; position: relative; padding-bottom: 15px; background-color: transparent;">
+            <div class="row">
+                <div class="col-sm-12 col-md-4" style="background-color: #66b2b2; padding-top: 15px; color: white;  border-radius: calc(.25rem - 1px)">
+                    <div style="text-align: center;">
+                        <img class="img-thumbnail img-fluid rounded-circle" alt="Nick Klufas" src="images/headshot.png" data-holder-rendered="true" width="200px">
+                        <h1 class="display-4">Nick Klufas</h1>
+                        <a class="h4" href="https://klufas.me">https://Klufas.me</a>
+                        <p class="lead">Development Engineer</p>
+                    </div>
+                    <div class="skills-header h3">
+                        <span>Skills</span>
+                        <span></span>
+                    </div>
+                    <div id="skills-container-wrapper">
+                        <div class="skill-container">
+                            <p class="skill-title h5">Back End</p>
+                            <div class="skill-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li>.NET C#
+                                    <ul>
+                                        <li>ASP.NET MVC</li>
+                                        <li>Restful Web APIs</li>
+                                        <li>Microservices</li>
+                                        <li>SignalR</li>
+                                        <li>NServiceBus Messaging</li>
+                                        <li>SQL / Mongo</li>
+                                    </ul>
+                                </li>
+                                <li>AWS
+                                    <ul>
+                                        <li>Autoscaling EC2 instances</li>
+                                        <li>API Gateway</li>
+                                        <li>S3 / Cloudfront</li>
+                                        <li>SQS (Simple Queue Service)</li>
+                                        <li>RDS / DynamoDB</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="skill-container">
+                            <p class="skill-title h5">Front End</p>
+                            <div class="skill-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li>HTML / CSS
+                                    <ul>
+                                        <li>Responsive Web Design</li>
+                                        <li>Bootstrap / Foundation</li>
+                                        <li>Flexbox</li>
+                                        <li>B.E.M Methodology</li>
+                                    </ul>
+                                </li>
+                                <li>Javascript
+                                    <ul>
+                                        <li>jQuery</li>
+                                        <li>Bootstrap</li>
+                                        <li>D3.js</li>
+                                        <li>Require.js</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="skill-container">
+                            <p class="skill-title h5">Native / Mobile</p>
+                            <div class="skill-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li>Native via Xamarin
+                                    <ul>
+                                        <li>Native iOS</li>
+                                        <li>Native Android</li>
+                                        <li>Portable Class Libraries</li>
+                                    </ul>
+                                </li>
+                                <li>Progressive Web Apps
+                                    <ul>
+                                        <li>Application Cache</li>
+                                        <li>Service Workers</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="skill-container">
+                            <p class="skill-title h5">Dev Ops</p>
+                            <div class="skill-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li>Continuous Integration
+                                    <ul>
+                                        <li>TeamCity</li>
+                                        <li>SVN</li>
+                                        <li>Team Foundation Server</li>
+                                        <li>Powershell</li>
+                                    </ul>
+                                </li>
+                                <li>Continuous Deployment
+                                    <ul>
+                                        <li>Octopus</li>
+                                        <li>IIS</li>
+                                        <li>Route53</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-8 content-column" style="padding-right: 0;">
+                    <div class="card">
+                        <div class="card-header h3">
+                            <span>Summary</span><span></span>
+                        </div>
+                        <div class="card-body">
+                            <p>Nick Klufas is a full-stack polyglot software developer with 10 years of experience architecting, implementing and deploying software solutions spanning across web, mobile and desktop environments.</p>
+                            <p>Klufas’ current focus includes designing and building highly scalable C# .NET backend infrastructures. Nick drives development initiatives to harness the power of service-oriented architecture, and the transformation of monolithic applications into individual microservices.</p>
+                            <p>Well versed in the latest technologies, including HTML, CSS and Javascript, Klufas develops thoughtful front-end solutions that provide an excellent user experience. Nick excels in creating technology solutions using a wide range of codebases from traditional ecommerce platforms and dynamic data visualization tools, to Bootstrap and even d3.js.</p>
+                            <p>Klufas believes that quality in code in production is imperative and to achieve this level of quality you must abide by design standards and follow best practices. Ultimately his focus is on producing stable software solutions using continuous integration (TeamCity) and continuous delivery pipeline (.net Octopus).</p>
+                            <p>More than just a developer, Klufas is also an elected official. In 2016, Nick became the youngest elected official in Flagler County history as Palm Coast City Councilman. His public office has helped develop his ability to articulate problems and solutions to a constituency of over 80,000 people. His leadership in public office and ACI’s agile development environment inspires communication and collaboration. In all aspects of his life, he strives to make those around him better and can be a valuable addition to any team.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header h3">
+                            <span>Work History</span><span></span>
+                        </div>
+                        <div class="card-body">
+                            <div class="timeline timeline-single-column">
+                                <div class="timeline-heading" style="position: relative; padding: 10px; background-color: white;">
+                                    <h4>July 2011 - Present</h4>
+                                    <h5>ACI (First American Financial)</h5>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-point">
+                                    </div>
+                                    <div class="timeline-event">
+                                        <div class="timeline-heading">
+                                            <h4>Senior Development Engineer</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <ul class="list-unstyled">
+                                                <li>Team Leader Responsibilities:
+                                                    <ul>
+                                                        <li>Oversee team of 4 development engineers</li>
+                                                        <li>Plan iterations, establish estimates and assign tasks</li>
+                                                        <li>Decide execution path for technology and architecture</li>
+                                                        <li>Collaborate with product managers and executive stakeholders</li>
+                                                        <li>Translate business needs into features and solutions</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-unstyled">
+                                                <li>Accomplishments:
+                                                    <ul>
+                                                        <li>Developed FEMA flood mapping service using ArcGIS, .NET, and python (eliminating $1M annual expenditure)</li>
+                                                        <li>Exposed legacy order system via RESTful APIs to integrate a CMS platform for self-service purchasing</li>
+                                                        <li>Built a recurring payment system to support subscription models</li>
+                                                        <li>Developed iOS and Android applications with react native and Xamarin</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline timeline-single-column">
+                                <div class="timeline-heading" style="position: relative; padding: 10px; background-color: white;">
+                                    <h4>July 2009 - 2011</h4>
+                                    <h5>Palm Coast Data</h5>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-point">
+                                    </div>
+                                    <div class="timeline-event">
+                                        <div class="timeline-heading">
+                                            <h4>Application Analyst</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <li>
+                                                <ul>
+                                                    <li>Originally hired to translate customer requirements into an AS400</li>
+                                                    <li>Built a solution that would directly translate the requirements into JCL (IBM Mainframe) for automatic scheduling</li>
+                                                </ul>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header h3">
+                            <span>Education</span><span></span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="card card-education" style="text-align: center;">
+                                        <img class="card-img-top" src="images/dsc.png" alt="Card image cap">
+                                        <div class="card-body">
+                                            <p class="card-text">2006-2009 Associate's Degree</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="card" style="text-align: center;">
+                                        <img class="card-img-top" style="max-height: 95px;" src="images/ucf.jpg" alt="Card image cap">
+                                        <div class="card-body">
+                                            <p class="card-text">2010-2011 | Electrical Engineering</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header h3">
+                            <span>References</span><span></span>
+                        </div>
+                        <div class="card-body reference-card-container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="alert col alert-info" role="alert">
+                                        Details available upon request
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-lg-4">
+                                    <div class="card reference-card">
+                                        <div class="card-body">
+                                            <p class="name"><strong>**** *******</strong></p>
+                                            <p class="title">Development Engineer</p>
+                                            <p class="company">Indeed.com</p>
+                                            <p class="city">Austin, Texas</p>
+                                            <p class="phone">(***) ***-*****</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-lg-4">
+                                    <div class="card reference-card">
+                                        <div class="card-body">
+                                            <p class="name"><strong>**** *******</strong></p>
+                                            <p class="title">Systems Engineer</p>
+                                            <p class="company">Cloudflare</p>
+                                            <p class="city">San Francisco, California</p>
+                                            <p class="phone">(***) ***-*****</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-lg-4">
+                                    <div class="card reference-card">
+                                        <div class="card-body">
+                                            <p class="name"><strong>**** *******</strong></p>
+                                            <p class="title">Development Engineer</p>
+                                            <p class="company">ICS (Information & Computing Services, Inc)</p>
+                                            <p class="city">Jacksonville, Florida</p>
+                                            <p class="phone">(***) ***-*****</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /container -->
+    </div>
+    <div id="particles-js"></div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/particles.js"></script>
+    <script type="text/javascript">
+    /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+    // particlesJS.load('particles-js', 'assets/particles.json', function() {
+    //     console.log('callback - particles.js config loaded');
+    // });
 
-</div>
-<!-- /.main  -->
+    particlesJS('particles-js', {
+        "particles": {
+            "number": {
+                "value": 80,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#81d8d0"
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                },
+                "image": {
+                    "src": "img/github.svg",
+                    "width": 100,
+                    "height": 100
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#81d8d0",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 3,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": false,
+                    "mode": "repulse"
+                },
+                "onclick": {
+                    "enable": false,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 400,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    })
+    </script>
+</body>
 
-<script>
-	var scripts = {
-		'twitter-wjs'   : '//platform.twitter.com/widgets.js',
-		'analytics'     : ('https:'==location.protocol?'//ssl':'//www') + '.google-analytics.com/ga.js'
-	}, script, _gaq=[['_setAccount','UA-41346439-1'],['_trackPageview']];
-
-	for (var id in scripts) {
-		script = document.createElement('script'); script.src = scripts[id];
-		script.id = id;script.type = 'text/javascript'; script.async = true;
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-	}
-</script>
-<script src="/ui/js/jquery.js"></script>
-<script src="/ui/js/plugins.js"></script>
-<script src="/ui/js/script.js"></script>
-
-</body></html>
+</html>
